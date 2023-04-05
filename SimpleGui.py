@@ -14,6 +14,7 @@ clock = pygame.time.Clock()
 gui_font = pygame.font.SysFont("Arial", 20)
 
 buttons = []
+#https://pythonprogramming.altervista.org/buttons-in-pygame/
 class Button:
 	def __init__(self,text,width,height,pos,elevation):
 		#Core attributes 
@@ -70,14 +71,18 @@ class Button:
 			self.dynamic_elecation = self.elevation
 			self.top_color = '#475F77'
 
-button1 = Button('Start',200,40,(100,200),5)
-button2 = Button('Help',200,40,(100,250),5)
-button3 = Button('Quit',200,40,(100,300),5)
+button1 = Button('Start',400,80,(325,300),5)
+button2 = Button('Help',400,80,(325,390),5)
+button3 = Button('Quit',400,80,(325,480),5)
 
 def buttons_draw():
 	for b in buttons:
 		b.draw()
-		
+
+#https://www.youtube.com/watch?v=vnd3RfeG3NM
+#board
+
+
 while running:
     for event in pygame.event.get():
         if event.type==pygame.QUIT:
