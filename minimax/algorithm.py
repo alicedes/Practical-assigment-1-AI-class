@@ -1,6 +1,6 @@
 from copy import deepcopy
 import pygame
-from constants import RED, WHITE
+from constants import LIGHTSLATEBLUE, WHITE
 
 def minimax(position, depth, max_player, game):
     if depth == 0 or position.winner() != None:
@@ -19,7 +19,7 @@ def minimax(position, depth, max_player, game):
     else:
         minEval = float('inf')
         best_move = None
-        for move in get_all_moves(position, RED, game):
+        for move in get_all_moves(position, LIGHTSLATEBLUE, game):
             evaluation = minimax(move, depth-1, True, game)[0]
             minEval = min(minEval, evaluation)
             if minEval == evaluation:

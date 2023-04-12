@@ -3,7 +3,7 @@ import pygame
 pygame.init()
 
 WINDOWSIZE=(1000,800)
-PURPLE=(186,85,211)
+LIGHTSLATEBLUE=(132,112,255)
 BLACK=(0,0,0)
 WHITE=(255,255,255)
 
@@ -87,9 +87,12 @@ while running:
     for event in pygame.event.get():
         if event.type==pygame.QUIT:
             running=False  
-    screen.fill(PURPLE)
+    screen.fill(LIGHTSLATEBLUE)
     buttons_draw()
     pygame.display.update()
     clock.tick(60)
 
 pygame.quit()
+"click on start and start the game"
+"click on help and get the rules of the game"
+"click on quit and automatically close the game"

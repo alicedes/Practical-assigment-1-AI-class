@@ -1,5 +1,5 @@
 import pygame
-from constants import WIDTH, HEIGHT, SQUARE_SIZE, RED, WHITE
+from constants import WIDTH, HEIGHT, SQUARE_SIZE, LIGHTSLATEBLUE, WHITE
 from game import Game
 from minimax.algorithm import minimax
 
