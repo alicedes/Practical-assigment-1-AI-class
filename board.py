@@ -1,5 +1,5 @@
 import pygame
-from constants import BLACK, ROWS, LIGHTSLATEBLUE, SQUARE_SIZE, COLS, WHITE
+from constants import BLACK, ROWS, LIGHTSLATEBLUE, SQUARE_SIZE, COLS, WHITE, GREY
 from piece import Piece
 import sys
 import os
@@ -39,7 +39,7 @@ class Board:
             print("You lost")
         elif row==0:
             print("You won")
-            
+        "still needs to be adapted"            
 
     def get_piece(self, row, col):
         return self.board[row][col]
@@ -49,7 +49,7 @@ class Board:
             self.board.append([])
             for col in range(COLS):
                 if col % 2 == ((row + 1) % 2):
-                    if row < 3:
+                    if row < 2:
                         self.board[row].append(Piece(row, col, WHITE))
                     elif row > 4: 
                         self.board[row].append(Piece(row, col, LIGHTSLATEBLUE))
@@ -57,6 +57,7 @@ class Board:
                         self.board[row].append(0)
                 else:
                     self.board[row].append(0)
+                    "problem with the grey/blue pieces"
     def draw(self, win):
         self.draw_squares(win)
         for row in range(ROWS):
