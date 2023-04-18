@@ -14,10 +14,14 @@ class Board:
         self.blue_left = self.white_left = 12
         self.create_board()
 
+    def print_board(self):
+        print(self.board)
+
     def draw_squares(self, win):
         win.fill(BLACK)
-        for row in range(ROWS):
-            for col in range(row % 2, COLS, 2):
+        for row in range(COLS):
+            for col in range(row % 2, ROWS, 2):
+            #for col in range(COLS):
                 pygame.draw.rect(win, LIGHTSLATEBLUE, (row*SQUARE_SIZE, col*SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE))
         
     def evaluate(self):
@@ -51,13 +55,14 @@ class Board:
                 if col % 2 == ((row + 1) % 2):
                     if row < 2:
                         self.board[row].append(Piece(row, col, WHITE))
-                    elif row > 4: 
-                        self.board[row].append(Piece(row, col, LIGHTSLATEBLUE))
+                    elif row > 3: 
+                        self.board[row].append(Piece(row, col, GREY))
                     else:
                         self.board[row].append(0)
                 else:
                     self.board[row].append(0)
-                    "problem with the grey/blue pieces"
+        print(self.board)
+                   
     def draw(self, win):
         self.draw_squares(win)
         for row in range(ROWS):
@@ -90,10 +95,10 @@ class Board:
         right = piece.col + 1
         row = piece.row
 
-        if piece.color == LIGHTSLATEBLUE:
+        if piece.color == WHITE:
             moves.update(self._traverse_left(row -1, max(row-3, -1), -1, piece.color, left))
             moves.update(self._traverse_right(row -1, max(row-3, -1), -1, piece.color, right))
-        if piece.color == WHITE:
+        if piece.color == GREY:
             moves.update(self._traverse_left(row +1, min(row+3, ROWS), 1, piece.color, left))
             moves.update(self._traverse_right(row +1, min(row+3, ROWS), 1, piece.color, right))
     
